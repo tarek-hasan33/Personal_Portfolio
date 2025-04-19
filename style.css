@@ -6,12 +6,12 @@
 }
 
 body{
-    background: #111827;
-    color: #E5E7EB;
+    background: #0A192F;
+    color: #CCD6F6;
 }
 
 .container{
-    padding: 15px 4.5%;
+    padding: 15px 20%;
 }
 
 .navbar{
@@ -20,7 +20,7 @@ body{
     align-items: center;
 }
 
-.navbar-left {
+.navbar-left, .navbar-right {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -29,7 +29,7 @@ body{
 .navbar-brand{
     font-size: 1.1rem;
     font-weight: bold;
-    color: white;
+    color: #CCD6F6;
 }
 
 .navbar-nav{
@@ -38,5 +38,20 @@ body{
     list-style: none;
     margin: 0;
     padding: 0;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    font-weight: bold;
 }
+
+.navbar-right i{
+    font-size: 1.1rem;
+}
+
+.navbar a,
+.navbar a:visited,
+.navbar a:hover,
+.navbar a:active {
+    color: #CCD6F6;
+    text-decoration: none;
+}
+
+
