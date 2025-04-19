@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background: #111827;
+    color: #E5E7EB;
+}
+
+.container{
+    padding: 15px 4.5%;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.navbar-brand{
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+}
+
+.navbar-nav{
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+}
