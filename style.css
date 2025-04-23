@@ -6,8 +6,8 @@
 }
 
 body{
-    background: #0A192F;
-    color: #CCD6F6;
+    background: #011627;
+    color: #E0E0E0	;
 }
 
 .container{
@@ -23,13 +23,13 @@ body{
 .navbar-left, .navbar-right {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
 }
 
 .navbar-brand{
     font-size: 1.1rem;
     font-weight: bold;
-    color: #CCD6F6;
+    color: #E0E0E0;
 }
 
 .navbar-nav{
@@ -46,12 +46,17 @@ body{
     font-size: 1.1rem;
 }
 
-.navbar a,
-.navbar a:visited,
-.navbar a:hover,
-.navbar a:active {
-    color: #CCD6F6;
+.navbar a{
+    color: #CBD6E2;
     text-decoration: none;
 }
 
+.navbar a:hover {
+    color: #2EC4B6 ;
+}
 
+@media (max-width: 768px) {
+    .navbar-left > .navbar-nav{
+        display: none;
+    }
+}
