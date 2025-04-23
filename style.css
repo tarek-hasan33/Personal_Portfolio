@@ -1,3 +1,9 @@
+:root {
+    --bg-color: #011627;
+    --text-primary: #CBD6E2;
+    --text-secondary: #2EC4B6;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -6,8 +12,8 @@
 }
 
 body{
-    background: #011627;
-    color: #E0E0E0	;
+    background: var(--bg-color);
+    color: var(--text-primary);
 }
 
 .container{
@@ -29,10 +35,15 @@ body{
 .navbar-brand{
     font-size: 1.1rem;
     font-weight: bold;
-    color: #E0E0E0;
+    color: var(--text-primary);
 }
 
-.navbar-nav{
+.highlight-brand-letter{
+    color: var(--text-secondary);
+    transition: color 0.3 ease;
+}
+
+.navbar-menu, .navbar-logo{
     display: flex;
     gap: 15px;
     list-style: none;
@@ -47,16 +58,30 @@ body{
 }
 
 .navbar a{
-    color: #CBD6E2;
+    color: var(--text-primary);
     text-decoration: none;
 }
 
 .navbar a:hover {
-    color: #2EC4B6 ;
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
 }
 
-@media (max-width: 768px) {
-    .navbar-left > .navbar-nav{
-        display: none;
-    }
+.navbar-brand a:hover .highlight-brand-letter{
+    color: var(--text-primary);
 }
+
+.home-text{
+    margin-top: 20%;
+    font-size: 30px;
+}
+
+.home-text h1 span{
+    color: var(--text-secondary);
+}
+
+::selection {
+    background: rgba(46, 196, 182, 0.4); 
+    /* color: white;         */
+  }
+  
