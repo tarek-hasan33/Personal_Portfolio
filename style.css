@@ -1,87 +1,126 @@
 :root {
-    --bg-color: #011627;
-    --text-primary: #CBD6E2;
-    --text-secondary: #2EC4B6;
+  --bg-color: #011627;
+  --text-primary: #cbd6e2;
+  --text-secondary: #2ec4b6;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Space Grotesk', sans-serif;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Space Grotesk", sans-serif;
+  box-sizing: border-box;
 }
 
-body{
-    background: var(--bg-color);
-    color: var(--text-primary);
+body {
+  background: var(--bg-color);
+  color: var(--text-primary);
 }
 
-.container{
-    padding: 15px 20%;
+.container {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.navbar-left, .navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
 }
 
-.navbar-brand{
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: var(--text-primary);
+.navbar-brand {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--text-primary);
 }
 
-.highlight-brand-letter{
-    color: var(--text-secondary);
-    transition: color 0.3 ease;
+.highlight-brand-letter {
+  color: var(--text-secondary);
+  transition: color 0.3 ease;
 }
 
-.navbar-menu, .navbar-logo{
-    display: flex;
-    gap: 15px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 0.85rem;
-    font-weight: bold;
+.navbar-menu,
+.navbar-logo {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.85rem;
+  font-weight: bold;
 }
 
-.navbar-right i{
-    font-size: 1.1rem;
+.navbar-right i {
+  font-size: 1.2rem;
 }
 
-.navbar a{
-    color: var(--text-primary);
-    text-decoration: none;
+.navbar a {
+  color: var(--text-primary);
+  text-decoration: none;
 }
 
 .navbar a:hover {
-    color: var(--text-secondary);
-    transition: color 0.3s ease;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
 }
 
-.navbar-brand a:hover .highlight-brand-letter{
+.navbar-brand a:hover .highlight-brand-letter {
+  color: var(--text-primary);
+}
+
+.home-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70vh;
+}
+
+.home-left-side{
+    flex: 1;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+}
+
+.home-right-side{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-text-typed {
+  margin-top: 20%;
+  font-size: 2rem
+}
+
+.home-text-typed h1 .intro-name {
+  color: var(--text-secondary);
+}
+
+.blinking-cursor {
+  color: var(--text-primary);
+}
+
+.blinking-cursor {
     color: var(--text-primary);
-}
-
-.home-text{
-    margin-top: 20%;
-    font-size: 30px;
-}
-
-.home-text h1 span{
-    color: var(--text-secondary);
-}
-
-::selection {
-    background: rgba(46, 196, 182, 0.4); 
-    /* color: white;         */
+    animation: blink 1s step-start infinite;
   }
   
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+
+::selection {
+  background: rgba(46, 196, 182, 0.4);
+}
