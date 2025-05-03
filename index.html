@@ -1,51 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <title>Tarek Hasan</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script> -->
-</head>
-<body>
-    <div id="header">
-        <div class="container">
-            <nav class ="navbar">
-                <div class="navbar-left">
-                    <span class="navbar-brand"><a href="#"><span class="highlight-brand-letter">T</span>arek Hasan</a></span>
-                    <ul class="navbar-menu">
-                      <li><a href="#">Home</a></li>
-                      <li><a href="#">About</a></li>
-                      <li><a href="#">Experience</a></li>
-                      <li><a href="#">Projects</a></li>
-                    </ul>
-                  </div>
-                  <div class="navbar-right">
-                    <ul class="navbar-logo">
-                        <li><a href="https://github.com/tarek-hasan33"><i class="fab fa-github"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/tarek-hasan33/"><i class="fa-brands fa-linkedin"></i></a></li>
-                        <li><a href="mailto:t.r.hasan33@gmail.com"><i class="fas fa-envelope"></i></a></li>
-                    </ul>
-                  </div>
-            </nav>
-            <div class="home-container">
-                <div class="home-left-side">
-                    <div class="home-text-typed">
-                        <h1>hey,<br> 
-                            <span class="typed-text"></span><span class="blinking-cursor">_</span>
-                        </h1>
-                    </div>
-                </div>
-                <div class="home-right-side">
-
-                </div>    
-            </div>
-            
-        </div>
-    </div>
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="container">
+      <div class="navbar-left">
+        <span class="navbar-brand">
+        <a href="#"><span class="highlight-brand-letter">T</span>arek Hasan</a></span>
+        <ul class="navbar-menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#">Experience</a></li>
+          <li><a href="#">Projects</a></li>
+        </ul>
+      </div>
+      <div class="navbar-right">
+        <ul class="navbar-logo">
+          <li>
+            <a href="https://github.com/tarek-hasan33"
+              ><i class="fab fa-github"></i
+            ></a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/tarek-hasan33/"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+          </li>
+          <li>
+            <a href="mailto:t.r.hasan33@gmail.com"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </nav>
+
+    <!-- MAIN PAGES -->
+    <div id="content">
+      <!-- HOME PAGE -->
+      <div id="home">
+        <div class="container">
+          <div class="home-container">
+            <div class="home-left-side">
+              <div class="intro">
+                <h1>
+                  hey,<br />
+                  <span class="typed-text"></span
+                  ><span class="blinking-cursor">_</span>
+                </h1>
+              </div>
+              <div class="intro-subheading">
+                Compiling my future...brick by brick
+              </div>
+              <div class="intro-description">
+                I’m a CS student from Dhaka, Bangladesh, interested in
+                cybersecurity and AI research. Exploring NLP and Explainable AI,
+                while learning through hands-on projects—mostly by breaking
+                things first.
+              </div>
+              <div class="home-btns">
+                <a href="#" class="btn">Resume</a>
+                <a href="mailto:t.r.hasan33@gmail.com" class="home-mail"
+                  ><i class="fas fa-envelope"></i> Hiya!</a
+                >
+              </div>
+            </div>
+            <div class="home-right-side">
+              <div class="sketch-holder"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <div id="about">
+        <div class="container">helo</div>
+      </div>
+    </div>
+
     <script src="main.js"></script>
-</body>
+    <script src="sketch.js"></script>
+  </body>
 </html>
