@@ -1,7 +1,10 @@
 :root {
   --bg-color: #011627;
   --text-primary: #cbd6e2;
+  --text-lightest-primary: rgba(203, 214, 226, 0.2);
   --text-secondary: #2ec4b6;
+  --text-lightest-secondary: rgba(46, 196, 182, 0.4);
+
 }
 
 * {
@@ -114,6 +117,7 @@ body {
     align-items: stretch;
     height: 75vh;
     padding-top: 5rem;
+    gap: 2rem;
 }
 
 .home-left-side{
@@ -145,7 +149,7 @@ body {
 
 .blinking-cursor {
     color: var(--text-primary);
-    animation: blink 1s step-start infinite;
+    animation: blink 1.2s linear infinite;
   }
   
   @keyframes blink {
@@ -156,18 +160,19 @@ body {
 
   .intro-subheading {
     margin-top: 0.5rem;
-    font-size: 2rem;
+    font-size: 1.95rem;
     font-weight: 400;
     color: var(--text-primary);
     padding-bottom: 0.5rem;
   }
 
-  .intro-description {
+  .intro-description p {
     margin-top: 0.5rem;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     max-width: 37.5rem;
-    /* padding-bottom: 3.125rem; */
     color: var(--text-primary);
+    overflow-wrap: break-word;
+    text-align: justify;
   }
 
   .sketch-holder {
@@ -212,12 +217,71 @@ body {
 
   .btn:hover,
   .home-mail:hover{
-    background-color: rgba(46, 196, 182, 0.4);
+    background-color: var(--text-lightest-secondary)
   }
 
   #about{
     padding: 200px 0;
   }
+
+  .about-content{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    height: 100%;
+  }
+
+  .about-title{
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  .about-title::after{
+    content: "";
+    display: inline-block;
+    width: 895px;
+    height: 1px;
+    vertical-align: middle;
+    background-color: var(--text-lightest-primary);
+    margin-left: 25px;
+  }
+
+  .special-ch{
+    color: var(--text-secondary);
+  }
+
+  .about-left-side{
+    flex: 1;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    min-width: 0;
+    overflow-wrap: break-word;
+    text-align: justify;
+  }
+
+  .about-right-side{
+    width: 400px;
+    margin-top: 2rem;
+    flex-shrink: 0;
+    transition: 0.5s;
+  }
+
+  .about-right-side img{
+    border-radius: 10px;
+    height: auto;
+    width: 100%;
+  }
+
+  .about-right-side:hover{
+    transform: scale(1.05);
+    z-index: 2;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  
+
 ::selection {
-  background: rgba(46, 196, 182, 0.4);
+  background: var(--text-lightest-secondary)
 }
+
