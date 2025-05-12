@@ -7,6 +7,17 @@
 
 }
 
+/* 
+===================IMPORTANT===================
+
+Subheading font - 1.95rem
+Overall font size inside paragraph tag - 1.1rem
+Button section font - 1rem
+Tab content for buttons - 0.95rem
+
+
+*/
+
 * {
   margin: 0;
   padding: 0;
@@ -29,7 +40,7 @@ body {
   box-sizing: border-box;
 }
 
-/* Navbar Setuo */
+/* Navbar Setup */
 .navbar {
   justify-content: space-between;
   align-items: center;
@@ -45,6 +56,8 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  max-width: 82rem;
+  /* padding: 0 1rem; */
 }
 
 .navbar-left,
@@ -81,7 +94,7 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: bold;
 }
 
@@ -115,18 +128,18 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    height: 75vh;
-    padding-top: 5rem;
-    gap: 2rem;
+    height: calc(100vh - 3.5rem);
+    padding-top: 0rem;
+    gap: 2rem;   
 }
 
 .home-left-side{
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
-    text-align: flex-start;
+    /* text-align: flex-start; */
     height: 100%;
 }
 
@@ -139,7 +152,7 @@ body {
 }
 
 .intro{
-  margin-top: 20%;
+  margin-top: 0;
   font-size: 2rem;
 }
 
@@ -221,14 +234,15 @@ body {
   }
 
   #about{
-    padding: 200px 0;
+    padding: 12.5rem 0;
   }
 
   .about-content{
     display: flex;
     flex-direction: row;
-    gap: 5rem;
+    gap: 4rem;
     height: 100%;
+    padding-top: 0rem;
   }
 
   .about-title{
@@ -248,38 +262,160 @@ body {
 
   .special-ch{
     color: var(--text-secondary);
+    text-decoration: none;
   }
 
   .about-left-side{
     flex: 1;
     margin-top: 2rem;
-    font-size: 1.1rem;
     color: var(--text-primary);
     min-width: 0;
     overflow-wrap: break-word;
     text-align: justify;
+    word-spacing: 5px;
   }
 
   .about-right-side{
-    width: 400px;
+    width: 350px;
     margin-top: 2rem;
     flex-shrink: 0;
-    transition: 0.5s;
+    
   }
 
   .about-right-side img{
     border-radius: 10px;
     height: auto;
     width: 100%;
+    transition: 0.5s;
   }
 
-  .about-right-side:hover{
+  .about-right-side img:hover{
     transform: scale(1.05);
     z-index: 2;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   }
 
-  
+  .about-left-side a{
+    color: var(--text-secondary);
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .about-left-side p {
+    padding-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .tabs-container{
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .tab-buttons{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .tab-button {
+    background: none;
+    border: none;
+    padding: 0.8rem 7rem 0.8rem 0.5rem;
+    color: var(--text-primary);
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+    border-radius: 4px;
+    font-size: 1rem;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .tab-button .ripple {
+    position: absolute;
+    background: var(--text-lightest-secondary);
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animation 0.9s ease-out;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+  }
+
+  @keyframes ripple-animation {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  .tab-button.active {
+    font-weight: bold;
+  }
+
+  .tab-button.focused {
+    color: var(--text-secondary);
+  }
+
+  .tab-indicator{
+    position: absolute;
+    right: 0;
+    width: 2px;
+    /* height: 2rem; */
+    background-color: var(--text-secondary);
+    transition: top 0.3s ease;
+    top: 0;
+  }
+
+  .tab-content{
+    flex: 1;
+  }
+
+  .tab-panel{
+    display: none;
+    animation: fadeIn 0.4s ease;
+    margin-left: 2.5rem;
+    margin-top: 0.1rem;
+  }
+
+  .tab-panel.active{
+    display: block;
+  }
+
+  .skills-container {
+    display: flex;
+    gap: 4rem;
+  }
+
+  .skills-column {
+    list-style: none;
+    padding: 0;
+  }
+
+  .skills-column li {
+    margin-bottom: 1rem;
+  }
+
+  .skills-column a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-weight: normal;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .skills-column a::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+  }
 
 ::selection {
   background: var(--text-lightest-secondary)
