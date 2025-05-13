@@ -2,6 +2,7 @@
   --bg-color: #011627;
   --text-primary: #cbd6e2;
   --text-lightest-primary: rgba(203, 214, 226, 0.2);
+  --text-lightest-slightly: rgba(203, 214, 226, 0.8);
   --text-secondary: #2ec4b6;
   --text-lightest-secondary: rgba(46, 196, 182, 0.4);
 
@@ -49,6 +50,8 @@ body {
   height: 3.5rem;
   position: fixed;
   z-index: 1000;
+  top: 0;
+  left: 0;
 }
 
 .navbar .container {
@@ -217,7 +220,6 @@ body {
   .home-btns .home-mail {
     margin-top: 1rem;
     display: inline-block;
-    margin: 3.125rem left;
     width: fit-content;
     border: 1px solid var(--text-secondary);
     padding: 15px 45px;
@@ -234,7 +236,18 @@ body {
   }
 
   #about{
-    padding: 12.5rem 0;
+    /* padding: 8rem 0; */
+    padding: 8rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .about-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
   }
 
   .about-content{
@@ -250,14 +263,11 @@ body {
     font-weight: bold;
   }
 
-  .about-title::after{
+  .about-header::after{
     content: "";
-    display: inline-block;
-    width: 895px;
+    flex-grow: 1;
     height: 1px;
-    vertical-align: middle;
     background-color: var(--text-lightest-primary);
-    margin-left: 25px;
   }
 
   .special-ch{
@@ -310,18 +320,21 @@ body {
     display: flex;
     gap: 2rem;
     margin-top: 1rem;
+    padding-bottom: 2rem;
   }
 
   .tab-buttons{
     display: flex;
     flex-direction: column;
     position: relative;
+    height: 100%;
   }
 
   .tab-button {
+    width: 12rem;
     background: none;
     border: none;
-    padding: 0.8rem 7rem 0.8rem 0.5rem;
+    padding: 0.8rem 12rem 0.8rem 0.5rem;
     color: var(--text-primary);
     text-align: left;
     cursor: pointer;
@@ -331,6 +344,8 @@ body {
     font-size: 1rem;
     overflow: hidden;
     z-index: 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   .tab-button .ripple {
@@ -369,6 +384,16 @@ body {
     top: 0;
   }
 
+  .tab-buttons::after{
+    content: "";
+    position: absolute;
+    right: 0px;
+    width: 2px;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    z-index: -1;
+  }
+
   .tab-content{
     flex: 1;
   }
@@ -401,7 +426,7 @@ body {
   .skills-column a {
     text-decoration: none;
     color: var(--text-primary);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: normal;
     position: relative;
     padding-left: 1.5rem;
@@ -416,6 +441,63 @@ body {
     color: var(--text-secondary);
     font-size: 0.8rem;
   }
+
+  .education-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding-bottom: 1rem;
+
+  }
+
+  .education-duration {
+    font-size: 0.95rem;
+    color: var(--text-lightest-slightly);
+    padding-bottom: 1rem;
+  }
+
+  .education-description p {
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: 1.5rem;
+  }
+
+  .education-description p::before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+  }
+
+  
+  #experience {
+    padding: 8rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .experience-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .experience-title {
+    font-size: 3rem;
+    font-weight: bold;
+    white-space: nowrap;
+    position: relative;
+  }
+
+  .experience-header::after {
+    content: "";
+    flex-grow: 1;
+    height: 1px;
+    background-color: var(--text-lightest-primary);
+  }
+
 
 ::selection {
   background: var(--text-lightest-secondary)
