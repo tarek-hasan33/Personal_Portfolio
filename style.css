@@ -14,7 +14,7 @@
 Subheading font - 1.95rem
 Overall font size inside paragraph tag - 1.1rem
 Button section font - 1rem
-Tab content for buttons - 0.95rem
+Tab content for buttons - 0.9rem
 
 
 */
@@ -236,8 +236,7 @@ body {
   }
 
   #about{
-    /* padding: 8rem 0; */
-    padding: 8rem 0;
+    padding: 5rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -255,7 +254,7 @@ body {
     flex-direction: row;
     gap: 4rem;
     height: 100%;
-    padding-top: 0rem;
+    margin-top: 2rem;
   }
 
   .about-title{
@@ -277,17 +276,17 @@ body {
 
   .about-left-side{
     flex: 1;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     color: var(--text-primary);
     min-width: 0;
     overflow-wrap: break-word;
     text-align: justify;
-    word-spacing: 5px;
+    /* word-spacing: 5px; */
   }
 
   .about-right-side{
     width: 350px;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     flex-shrink: 0;
     
   }
@@ -442,26 +441,26 @@ body {
     font-size: 0.8rem;
   }
 
-  .education-title {
+  .content-title {
     font-size: 1.3rem;
     font-weight: bold;
     padding-bottom: 1rem;
 
   }
 
-  .education-duration {
+  .content-duration {
     font-size: 0.95rem;
     color: var(--text-lightest-slightly);
     padding-bottom: 1rem;
   }
 
-  .education-description p {
+  .content-description p {
     font-size: 0.9rem;
     position: relative;
     padding-left: 1.5rem;
   }
 
-  .education-description p::before {
+  .content-description p::before {
     content: "▶";
     position: absolute;
     left: 0;
@@ -471,7 +470,7 @@ body {
 
   
   #experience {
-    padding: 8rem 0;
+    padding: 5rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -498,6 +497,13 @@ body {
     background-color: var(--text-lightest-primary);
   }
 
+  .experience-content {
+    margin-top: 2rem;
+  }
+
+  #experience .tab-content {
+    padding-right: 15rem;
+  }
 
 ::selection {
   background: var(--text-lightest-secondary)
