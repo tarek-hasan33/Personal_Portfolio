@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Typed.js initialization
+  // Typed.js
   new Typed(".typed-text", {
     strings: ["it's <span class='intro-name'>tarek</span> here..."],
     typeSpeed: 60,
@@ -7,7 +7,26 @@ document.addEventListener("DOMContentLoaded", function () {
     contentType: "html",
   });
 
-  // Handle each tab container individually
+  // === Fade-in on scroll (staggered one-by-one) ===
+  const fadeSections = document.querySelectorAll(".fade-in-section");
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add("active");
+        }, i * 200); // staggered delay between items (150ms)
+        observer.unobserve(entry.target); // animate only once
+      }
+    });
+  }, { threshold: 0.15 });
+
+  fadeSections.forEach((section) => {
+    section.classList.remove("active"); // ensure hidden initially
+    observer.observe(section);
+  });
+
+  // === Tabbed content ===
   const tabContainers = document.querySelectorAll(".tabs-container");
 
   tabContainers.forEach(container => {
@@ -18,23 +37,37 @@ document.addEventListener("DOMContentLoaded", function () {
     let activeIndex = 0;
 
     function activateTab(index, applyFocus = true) {
-      panels.forEach(panel => panel.classList.remove("active"));
-      if (panels[index]) panels[index].classList.add("active");
+      panels.forEach((panel, i) => {
+        panel.classList.remove("active", "fade-in");
+
+        if (i === index) {
+          panel.classList.add("active");
+          setTimeout(() => {
+            panel.classList.add("fade-in");
+          }, 400);
+        }
+      });
 
       buttons.forEach((btn, i) => {
         btn.classList.remove("focused", "active");
         if (i === index) {
           btn.classList.add("active");
-          if (applyFocus) {
-            btn.classList.add("focused");
-          }
+          if (applyFocus) btn.classList.add("focused");
         }
       });
 
-      const button = buttons[index];
-      if (indicator && button) {
-        indicator.style.top = `${button.offsetTop}px`;
-        indicator.style.height = `${button.offsetHeight}px`;
+      if (indicator) {
+        const button = buttons[index];
+        if (button) {
+          indicator.style.top = `${button.offsetTop}px`;
+          indicator.style.height = `${button.offsetHeight}px`;
+        }
+      }
+
+      const tabContent = container.querySelector('.tab-content');
+      const activePanel = container.querySelector('.tab-panel.active');
+      if (tabContent && activePanel) {
+        tabContent.style.height = (activePanel.offsetHeight +5) + 'px';
       }
 
       activeIndex = index;
@@ -59,12 +92,12 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    // Click outside removes only focus (not active)
+    // Remove focus when clicking outside
     document.addEventListener("click", () => {
       buttons.forEach(btn => btn.classList.remove("focused"));
     });
 
-    // Initial state
+    // Activate initial tab
     activateTab(0, false);
   });
 });

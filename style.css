@@ -1,14 +1,12 @@
 :root {
   --bg-color: #011627;
+  --bg-color-slihtlight: #022039;
   --text-primary: #cbd6e2;
   --text-lightest-primary: rgba(203, 214, 226, 0.2);
   --text-lightest-slightly: rgba(203, 214, 226, 0.8);
   --text-secondary: #2ec4b6;
   --text-lightest-secondary: rgba(46, 196, 182, 0.4);
-
-  /* to use later on primary
-  rgba(203, 214, 226, 0.9);
-  */
+  --glass-texture: rgba(255, 255, 255, 0.05);
 
 }
 
@@ -33,6 +31,10 @@ Tab content for buttons - 0.9rem
 body {
   background: var(--bg-color);
   color: var(--text-primary);
+}
+
+::selection {
+  background: var(--text-lightest-secondary)
 }
 
 
@@ -277,7 +279,7 @@ body {
     flex-direction: row;
     gap: 4rem;
     height: 100%;
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 
   .about-left-side{
@@ -292,7 +294,6 @@ body {
 
   .about-right-side{
     width: 350px;
-    /* margin-top: 2rem; */
     flex-shrink: 0;
     
   }
@@ -317,7 +318,6 @@ body {
   }
 
   .about-left-side p {
-    padding-bottom: 2rem;
     font-size: 1.1rem;
   }
 
@@ -464,6 +464,7 @@ body {
     font-size: 0.9rem;
     position: relative;
     padding-left: 1.5rem;
+    
   }
 
   .content-description p::before {
@@ -474,9 +475,15 @@ body {
     font-size: 0.7rem;
   }
 
+  .tabs-container .tab-content {
+  transition: height 0.3s ease;
+  overflow: hidden;
+  }
+
+
   
   #experience {
-    padding: 5rem 0;
+    padding: 4rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -485,7 +492,7 @@ body {
   }
 
   .experience-content {
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 
   #experience .tab-content {
@@ -493,7 +500,7 @@ body {
   }
 
   #projects{
-    padding: 5rem 0;
+    padding: 4rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -502,10 +509,119 @@ body {
   }
 
   .projects-content {
-    margin-top: 2rem;
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    grid-gap: 0.8rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
-::selection {
-  background: var(--text-lightest-secondary)
+  .projects-content .cards {
+    background: var(--bg-color-slihtlight);
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 1.5rem;
+  }
+
+  .projects-content h2, p {
+    margin-bottom: 2rem;
+  }
+
+  .card-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    gap: 1rem; 
+    margin-bottom: 1rem; 
+  }
+
+  .left-card-icon i {
+    font-size: 2rem;
+    color: var(--text-secondary);
+  }
+
+  .right-card-icon a{
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: var(--text-primary);
+  }
+
+  .right-card-icon a:hover {
+      color: var(--text-secondary);
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .tech-stack span {
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+    background: var(--glass-texture);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 0px solid;
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    transition: background 0.3s ease;
+  }
+
+  .tech-stack span:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+
+  #footer {
+    padding-top: 4rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .credits {
+    padding-bottom: 3rem;
+    text-align: center;
+    width: 100%;
+    font-size: 0.85rem;
+    color: var(--text-lightest-slightly);
+  }
+
+.fade-in-section,
+.fade-in-section.cards,
+.tab-panel {
+  opacity: 0;
+  transform: translateY(10vh);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  visibility: hidden;
+}
+
+
+.fade-in-section.active,
+.fade-in-section.cards.active,
+.tab-panel.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.fade-in-section.cards.active:hover {
+  transform: translateY(0) scale(1.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  background: var(--bg-color);
+  border: 1px solid var(--text-secondary);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+
+
+
+/* small screen csss */
+
+@media only screen and (max-width: 600px){
+  
+  
 }
 
