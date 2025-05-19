@@ -17,12 +17,9 @@ let nextFallingStarTime = 0;
 
 function setup() {
   let sketchHolder = document.querySelector(".sketch-holder");
-  let canvas = createCanvas(
-    sketchHolder.offsetWidth,
-    sketchHolder.offsetHeight
-  );
+  let canvas = createCanvas(sketchHolder.offsetWidth, sketchHolder.offsetHeight);
   canvas.parent(sketchHolder);
-  //canvas.parent(".sketch-holder");
+
   rotationBase = radians(-28);
   rotationAngle = rotationBase;
 
@@ -43,19 +40,16 @@ function setup() {
 
   // Generate background stars
   for (let i = 0; i < numStars; i++) {
-    let angle = random(TWO_PI);
-    let distFromCenter = random(150, 350);
-    let x = width / 2 + cos(angle) * distFromCenter;
-    let y = height / 2 + sin(angle) * distFromCenter;
-    stars.push({ x, y, size: random(1, 2), brightness: random(150, 255) });
-  }
+  let x = random(width);
+  let y = random(height);
+  stars.push({ x, y, size: random(1, 2), brightness: random(150, 255) });
+}
 
   nextFallingStarTime = millis() + random(3000, 8000);
 }
 
 function draw() {
   clear();
-  //background(0);
   drawStars();
   updateFallingStar();
 
