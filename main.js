@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Typed.js
   new Typed(".typed-text", {
-    strings: ["<span class='intro-name'>tarek</span> here."],
+    strings: [" <span class='intro-name'>tarek</span> here."],
     typeSpeed: 60,
     showCursor: false,
     contentType: "html",
@@ -9,26 +9,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // === Fade-in on scroll (staggered one-by-one) ===
   const fadeSections = document.querySelectorAll(".fade-in-section");
-
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
         setTimeout(() => {
           entry.target.classList.add("active");
-        }, i * 200); // staggered delay between items (150ms)
-        observer.unobserve(entry.target); // animate only once
+        }, i * 200);
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.15 });
 
   fadeSections.forEach((section) => {
-    section.classList.remove("active"); // ensure hidden initially
+    section.classList.remove("active");
     observer.observe(section);
   });
 
   // === Tabbed content ===
   const tabContainers = document.querySelectorAll(".tabs-container");
-
   tabContainers.forEach(container => {
     const buttons = container.querySelectorAll(".tab-button");
     const panels = container.querySelectorAll(".tab-panel");
@@ -39,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function activateTab(index, applyFocus = true) {
       panels.forEach((panel, i) => {
         panel.classList.remove("active", "fade-in");
-
         if (i === index) {
           panel.classList.add("active");
           setTimeout(() => {
@@ -67,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const tabContent = container.querySelector('.tab-content');
       const activePanel = container.querySelector('.tab-panel.active');
       if (tabContent && activePanel) {
-        tabContent.style.height = (activePanel.offsetHeight +5) + 'px';
+        tabContent.style.height = (activePanel.offsetHeight + 5) + 'px';
       }
 
       activeIndex = index;
@@ -78,7 +75,6 @@ document.addEventListener("DOMContentLoaded", function () {
         e.stopPropagation();
         activateTab(index, true);
 
-        // Ripple effect
         const ripple = document.createElement("span");
         ripple.classList.add("ripple");
 
@@ -92,12 +88,48 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    // Remove focus when clicking outside
     document.addEventListener("click", () => {
       buttons.forEach(btn => btn.classList.remove("focused"));
     });
 
-    // Activate initial tab
     activateTab(0, false);
+  });
+
+  // === Orbit icon positioning ===
+  function positionOrbitIcons(rotatorSelector) {
+    const rotator = document.querySelector(rotatorSelector);
+    if (!rotator) return;
+
+    const icons = rotator.querySelectorAll('.orbit-icon');
+    const count = icons.length;
+    const radius = rotator.offsetWidth / 2;
+
+    icons.forEach((icon, index) => {
+      const angle = (index / count) * 2 * Math.PI;
+      const x = radius + radius * Math.cos(angle);
+      const y = radius + radius * Math.sin(angle);
+      icon.style.left = `${x}px`;
+      icon.style.top = `${y}px`;
+
+      // Wrap image in a container to counter rotate it
+      const img = icon.querySelector('img');
+      if (img) {
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('icon-inner');
+        wrapper.appendChild(img.cloneNode(true));
+        img.remove();
+        icon.appendChild(wrapper);
+      }
+    });
+  }
+
+  // Position icons for both inner and outer orbits
+  positionOrbitIcons('.outer-rotator');
+  positionOrbitIcons('.inner-rotator');
+
+  // Optional: re-position on resize for responsiveness
+  window.addEventListener('resize', () => {
+    positionOrbitIcons('.outer-rotator');
+    positionOrbitIcons('.inner-rotator');
   });
 });
