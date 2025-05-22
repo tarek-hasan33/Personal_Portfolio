@@ -1,6 +1,6 @@
 :root {
   --bg-color: #011627;
-  --bg-color-slihtlight: #022039;
+  --bg-color-slightlight: #022039;
   --text-primary: #cbd6e2;
   --text-lightest-primary: rgba(203, 214, 226, 0.2);
   --text-lightest-slightly: rgba(203, 214, 226, 0.8);
@@ -36,6 +36,59 @@ html, body {
   padding: 0 1rem;
 }
 
+#intro-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-color);
+  color: var(--text-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 1s ease, transform 1s ease, filter 1s ease;
+}
+
+#intro-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+  filter: blur(2px);
+}
+
+.hello-shuffle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  animation: fade 0.4s ease-in-out;
+}
+
+@keyframes fade {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.wave-hand {
+  display: inline-block;
+  margin-left: 0.4rem;
+  animation: wave 1.8s infinite;
+  transform-origin: 70% 70%;
+  font-size: 2.5rem;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(14deg); }
+  30% { transform: rotate(-8deg); }
+  40% { transform: rotate(14deg); }
+  50% { transform: rotate(-4deg); }
+  60% { transform: rotate(10deg); }
+  70% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+
 .navbar {
   justify-content: space-between;
   align-items: center;
@@ -56,7 +109,7 @@ html, body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 90%; /* control how wide the border is */
+  width: 90%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -121,6 +174,14 @@ html, body {
   transition: color 0.3s ease;
 }
 
+.navbar-logo li a i {
+  transition: transform 0.3s ease;
+}
+
+.navbar-logo li a:hover i {
+  transform: scale(1.2); 
+}
+
 .navbar-brand a:hover .highlight-brand-letter {
   color: var(--text-primary);
 }
@@ -153,31 +214,6 @@ html, body {
   height: 100%;
 }
 
-/* .home-container {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-  align-items: center;
-  min-height: calc(100vh - 3.5rem);
-  gap: 2rem;
-  padding: 2rem 1rem;
-  text-align: center;
-}
-
-.home-left-side,
-.home-right-side {
-  flex: unset;
-  width: 100%;
-  max-width: 600px;
-}
-
-.home-right-side {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 400px; 
-} */
-
 .intro {
   margin-top: 2rem;
   font-size: 2rem;
@@ -200,8 +236,6 @@ html, body {
     opacity: 0;
   }
 }
-
-
 
 .intro-subheading {
   margin-top: 0.5rem;
@@ -257,7 +291,7 @@ html, body {
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .inner-rotator {
@@ -272,10 +306,25 @@ html, body {
 
 .orbit-icon {
   position: absolute;
-  width: clamp(60px, 6vw, 70px); /* min 32px, ideal 6vw, max 70px */
+  width: clamp(60px, 6vw, 70px); 
   height: clamp(60px, 6vw, 70px);
-  transform: translate(-50%, -50%);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
+.orbit-icon.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.orbit-icon:hover {
+  transform: translate(-50%, -50%) scale(1.3);
+  z-index: 10;
+  filter: invert(64%) sepia(56%) saturate(522%) hue-rotate(125deg) brightness(160%) contrast(100%);
+  cursor: pointer;
+}
+
 
 .orbit-icon img {
   width: 100%;
@@ -315,6 +364,9 @@ html, body {
   0% { transform: translate(-50%, -50%) rotate(0deg); }
   100% { transform: translate(-50%, -50%) rotate(-360deg); }
 }
+
+
+
 
 .home-btns {
   display: flex;
@@ -486,6 +538,7 @@ html, body {
   background-color: var(--text-secondary);
   transition: top 0.3s ease;
   top: 0;
+  z-index: 1;
 }
 
 .tab-buttons::after {
@@ -495,7 +548,6 @@ html, body {
   width: 2px;
   background-color: rgba(0, 0, 0, 0.7);
   height: 100%;
-  z-index: -1;
 }
 
 .tab-content {
@@ -554,7 +606,7 @@ html, body {
 
 .content-duration {
   font-size: 0.95rem;
-  color: var(--text-lightest-slightly);
+  color: var(--text-lightest-primary-slightly);
   padding-bottom: 1rem;
 }
 
@@ -613,7 +665,7 @@ html, body {
 }
 
 .projects-content .cards {
-  background: var(--bg-color-slihtlight);
+  background: var(--bg-color-slightlight);
   border-radius: 15px;
   box-sizing: border-box;
   padding: 1.5rem;
@@ -646,6 +698,56 @@ p {
 .right-card-icon a:hover {
   color: var(--text-secondary);
 }
+
+.project-images {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+}
+
+.project-images img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+  border-radius: 12px;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.project-images img:first-child {
+  display: block;
+}
+
+.image-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  color: var(--text-secondary); 
+  cursor: pointer;
+  user-select: none;
+  padding: 0 8px; 
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.fade-in-section.cards.active:hover .image-nav {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.left-arrow {
+  left: 8px;
+}
+
+.right-arrow {
+  right: 8px;
+}
+
 
 .tech-stack {
   display: flex;
@@ -683,7 +785,6 @@ p {
   width: 100%;
   font-size: 0.85rem;
   color: var(--text-lightest-slightly);
-  
 }
 
 .fade-in-section,
@@ -752,10 +853,6 @@ p {
     height: auto;
     gap: 0rem;
   }
-
-  /* .home-container {
-    padding-top: 3.5rem;
-  } */
 
   .home-left-side,
   .home-right-side {
@@ -900,4 +997,37 @@ p {
   }
 
   
+}
+
+@media only screen and (max-width: 360px) {
+  .intro {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .intro-subheading {
+    font-size: 1.1rem;
+  }
+
+  .intro-description p {
+    font-size: 0.78rem;
+    text-align: center;
+  }
+
+  .blinking-cursor {
+    font-size: 1.8rem;
+  }
+
+  .home-btns {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .home-btns .btn,
+  .home-btns .home-mail {
+    padding: 10px 15px;
+    font-size: 0.8rem;
+  }
 }
