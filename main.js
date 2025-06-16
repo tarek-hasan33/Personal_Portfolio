@@ -63,6 +63,20 @@ document.addEventListener("DOMContentLoaded", function () {
       observer.observe(section);
     });
 
+
+    // openEmail function
+    window.openEmail = function(email) {
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        window.location.href = `mailto:${email}`;
+      } else {
+        window.open(
+          `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`,
+          "_blank"
+        );
+      }
+    };
+
     //Tabbed content
     const tabContainers = document.querySelectorAll(".tabs-container");
     tabContainers.forEach((container) => {

@@ -594,7 +594,7 @@ html, body {
   margin-bottom: 1rem;
 }
 
-.skills-column a {
+.skills-column .skill-item {
   text-decoration: none;
   color: var(--text-primary);
   font-size: 0.9rem;
@@ -603,7 +603,7 @@ html, body {
   padding-left: 1.5rem;
 }
 
-.skills-column a::before {
+.skills-column .skill-item::before {
   content: "▶";
   position: absolute;
   left: 0;

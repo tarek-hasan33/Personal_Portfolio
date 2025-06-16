@@ -27,7 +27,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
-            <!-- <li><a href="#">Blog</a></li> -->
+            <li><a href="#">Blog</a></li>
           </ul>
         </div>
         <div class="navbar-right">
@@ -41,8 +41,11 @@
               ></a>
             </li>
             <li>
-              <a href="mailto:t.r.hasan33@gmail.com" target="_blank"><i class="fas fa-envelope"></i
+              <a href="#" onclick="openEmail('t.r.hasan33@gmail.com')" target="_blank"><i class="fas fa-envelope"></i
               ></a>
+            </li>
+            <li>
+              <a href="https://medium.com/@t.r.hasan33" target="_blank"><i class="fa-regular fa-pen-to-square"></i></a>
             </li>
           </ul>
         </div>
@@ -71,14 +74,14 @@
               </span>
               <div class="intro-description">
                 <p>
-                  I’m a CS student from Dhaka, Bangladesh, interested in cybersecurity and AI. 
+                  I’m a CS student from Dhaka, Bangladesh, interested in AI and Cybersecurity. 
                   Still figuring things out, building what I can, and hoping to contribute 
                   along the way.
                 </p>
               </div>
               <div class="home-btns">
                 <a href="#" class="btn">Resume</a>
-                <a href="mailto:t.r.hasan33@gmail.com" class="home-mail"
+                <a href="#" onclick="openEmail('t.r.hasan33@gmail.com')" class="home-mail"
                   ><i class="fas fa-envelope"></i> Hello!</a>
               </div>
             </div>
@@ -141,13 +144,13 @@
                     <div class="tab-panel active">
                       <div class="skills-container content-description">
                         <ul class="skills-column">
-                          <li><a href="#">Java</a></li>
-                          <li><a href="#">C++</a></li>
-                          <li><a href="#">Javascript ES6+</a></li>
+                          <li><span class="skill-item">Java</span></li>
+                          <li><span class="skill-item">C++</span></li>
+                          <li><span class="skill-item">JavaScript ES6+</span></li>
                         </ul>
                         <ul class="skills-column">
-                          <li><a href="#">Git</a></li>
-                          <li><a href="#">MySQL</a></li>
+                          <li><span class="skill-item">Git</span></li>
+                          <li><span class="skill-item">MySQL</span></li>
                           <!-- <li><a href="#">Javascript ES6+</a></li> -->
                         </ul>
                       </div>
@@ -293,7 +296,7 @@
                 
                 <h2>Personal Portfolio</h2>
                 <p>
-                  A minimalistic, user-friendly portfolio site to share my journey, projects, and regular blogs.
+                  A minimalistic personal portfolio site to share my journey, projects, and regular blogs.
                 </p>
                 <div class="tech-stack">
                   <span>HTML</span>
